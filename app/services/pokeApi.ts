@@ -1,7 +1,7 @@
 import { PokemonListItem, PokemonDetails } from "../types/types";
 
 export const fetchPokemonList = async (limit: number, offset: number): Promise<PokemonListItem[]> => {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
     if (!res.ok) throw new Error("Error fetching Pokémon list");
     const data = await res.json();
 
@@ -14,7 +14,7 @@ export const fetchPokemonList = async (limit: number, offset: number): Promise<P
 };
 
 export const fetchPokemonDetails = async (name: string): Promise<PokemonDetails> => {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/pokemon/${name}`);
     if (!res.ok) throw new Error("Error fetching Pokémon details");
 
     const data = await res.json();

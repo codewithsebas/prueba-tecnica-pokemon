@@ -62,7 +62,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
     }, [])
 
     return (
-        <div className="w-[380px] h-auto xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
+        <div className="w-full h-full sm:w-[390px] sm:h-[620px] xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
             <div
                 onClick={flippedShoot}
                 className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] cursor-pointer ${flipped ? "[transform:rotateY(180deg)]" : ""}`}
@@ -111,7 +111,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                             className="relative  w-full  xl:h-[21rem] 2xl:h-96 flex flex-col items-center justify-center py-2 rounded-lg gap-2 mb-5 mt-2"
                         >
                             <div className="w-full px-1 flex flex-col h-full items-center justify-center">
-                                <div className="relative h-full w-full p-[4px] max-w-[25rem]">
+                                <div className="relative h-full w-full p-[4px] max-w-[25rem] flex justify-center items-center">
                                     <div
                                         className="absolute h-full px-2 max-w-[25rem] inset-0 border border-gray-400 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-400 rounded-sm pointer-events-none"
                                         style={{
@@ -129,7 +129,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                                         width={200}
                                         height={250}
                                         priority
-                                        className="object-contain w-full xl:h-72 2xl:h-80 border border-gray-400 p-2 rounded-sm transition-transform relative z-10"
+                                        className="object-contain w-40 sm:h-72 sm:w-full xl:h-72 2xl:h-80 md:border md:border-gray-400 p-2 rounded-sm transition-transform relative z-10"
                                         style={{
                                             filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))",
                                             backgroundColor: 'transparent'

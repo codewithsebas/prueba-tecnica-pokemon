@@ -21,13 +21,13 @@ export interface BackButtonProps {
 
 export interface PaginationProps {
     currentPage: number;
-    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+    setCurrentPage: (page: number) => void;
     total: number;
 }
 
 export interface SearchBarProps {
     searchQuery: string;
-    setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+    setSearchQuery: (value: string) => void;
 }
 
 export interface Pokemon {
@@ -59,4 +59,5 @@ export interface PokeProps {
 
 export interface PokeListProps {
     pokemonList: PokemonListItem[];
+    singleResult?: boolean;
 }

@@ -2,11 +2,16 @@ import { Search } from "lucide-react";
 import PokeCard from "./PokeCard";
 import { PokeListProps } from "../types/types";
 
-const PokeList = ({ pokemonList }: PokeListProps) => {
+const PokeList = ({ pokemonList, singleResult = false }: PokeListProps) => {
   return (
     <>
       {pokemonList.length > 0 ? (
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+        <div
+          className={`grid gap-4 gap-y-10 ${singleResult
+            ? "grid-cols-1 justify-center"
+            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+            }`}
+        >
           {pokemonList.map((pokemon) => (
             <PokeCard key={pokemon.name} pokemon={pokemon} />
           ))}
