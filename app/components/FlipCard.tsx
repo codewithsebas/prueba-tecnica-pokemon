@@ -59,7 +59,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                 shoot()
             }, 300)
         }, 200)
-    }, [shoot])
+    }, [])
 
     return (
         <div className="w-[380px] h-auto xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
