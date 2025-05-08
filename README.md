@@ -8,7 +8,7 @@ To run the project on your local machine follow the steps below, hope you like i
 
 ### Deployment
 
-Link Deploy: []()
+Link Deploy: [https://prueba-tecnica-pokemon.vercel.app/](https://prueba-tecnica-pokemon.vercel.app/)
 
 <img src="https://res.cloudinary.com/dovavvnjx/image/upload/v1746683231/WhatsApp_Image_2025-05-08_at_12.45.21_AM_hnjkd5.jpg" alt="Preview">
 
