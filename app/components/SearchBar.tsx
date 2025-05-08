@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PokemonListItem } from "../types/types";
 import { fetchPokemonList } from "../services/pokeApi";
+import { X } from "lucide-react";
 
 interface SearchBarProps {
     searchQuery: string;
@@ -34,9 +35,9 @@ const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
             {searchQuery && (
                 <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black px-3 py-1 rounded-full text-sm hover:bg-gray-200 transition"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 text-white p-1 py-1 rounded-full text-sm hover:bg-white/30 transition"
                 >
-                    Limpiar
+                    <X />
                 </button>
             )}
         </div>

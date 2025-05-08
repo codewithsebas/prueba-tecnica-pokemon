@@ -62,7 +62,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
     }, [])
 
     return (
-        <div className="w-full h-full sm:w-[390px] sm:h-[620px] xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
+        <div className="w-full h-fit sm:w-[390px] sm:h-[620px] xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
             <div
                 onClick={flippedShoot}
                 className={`relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] cursor-pointer ${flipped ? "[transform:rotateY(180deg)]" : ""}`}
