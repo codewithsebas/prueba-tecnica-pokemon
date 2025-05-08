@@ -129,7 +129,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                                         width={200}
                                         height={250}
                                         priority
-                                        className="object-contain w-40 sm:h-72 sm:w-full xl:h-72 2xl:h-80 md:border md:border-gray-400 p-2 rounded-sm transition-transform relative z-10"
+                                        className="object-contain w-80 sm:h-72 sm:w-full xl:h-72 2xl:h-80 md:border md:border-gray-400 p-2 rounded-sm transition-transform relative z-10"
                                         style={{
                                             filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2))",
                                             backgroundColor: 'transparent'
