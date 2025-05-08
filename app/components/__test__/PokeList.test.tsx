@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import PokeList from "../PokeList";
+import { Pokemon } from "@/app/types/types";
 
 jest.mock("../PokeCard", () => ({
   __esModule: true,
-  default: ({ pokemon }: any) => <div>{pokemon.name}</div>,
+  default: ({ pokemon }: { pokemon: Pokemon }) => <div>{pokemon.name}</div>,
 }));
 
 const mockPokemonList = [

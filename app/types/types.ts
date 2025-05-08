@@ -30,6 +30,12 @@ export interface SearchBarProps {
     setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export interface Pokemon {
+    id: number;
+    name: string;
+    image: string;
+}
+
 export interface PokemonListItem {
     id: number;
     name: string;
