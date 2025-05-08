@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchPokemonList } from "./services/pokeApi";
 import SearchBar from "./components/SearchBar";
 import Pagination from "./components/Pagination";
-import { Ban, LoaderCircle } from "lucide-react";
+import { Ban } from "lucide-react";
 import { PokemonListItem } from "./types/types";
 import PokemonList from "./components/PokeList";
 import { StarBackground } from "./components/StarBackground";
@@ -39,7 +39,7 @@ export default function Home() {
       <StarBackground />
       <article className="w-full max-w-7xl min-w-2xl p-5 flex flex-col gap-3 min-h-screen duration-200">
         <header className="text-white">
-          <Image src="/pokemon.png" alt="Logo Pokémon" className="w-48 h-20 xl:w-80 xl:h-36 object-contain" width={1000} height={1000} />
+          <Image src="/pokemon.png" alt="Logo Pokémon" className="w-48 h-20 xl:w-80 xl:h-36 object-contain" width={1000} height={1000} priority />
         </header>
 
 

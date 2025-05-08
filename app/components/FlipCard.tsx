@@ -59,7 +59,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                 shoot()
             }, 300)
         }, 200)
-    }, [])
+    }, [shoot])
 
     return (
         <div className="w-[380px] h-auto xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
@@ -184,7 +184,7 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
 
                             <p className="font-semibold mt-2 text-md xl:text-md 2xl:text-xl">Tipos:</p>
                             <div className="flex gap-1 flex-wrap mt-2">
-                                {types.map((t, index) => (
+                                {types.map((t) => (
                                     <span
                                         key={t.type.name}
                                         className="px-3 py-0.5 pb-1 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-400  rounded-full capitalize text-md xl:text-md font-medium"

@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { PokemonDetails, PokeProps } from "../types/types";
 import { fetchPokemonDetails } from "../services/pokeApi";
 import { typeColors } from "../svgs/typeColors";
-import { typeBgColors } from "../svgs/typeBgColors";
-import { typeIcons } from "../svgs/typeIcons";
 
 const PokeCard = ({ pokemon }: PokeProps) => {
     const [details, setDetails] = useState<PokemonDetails>();
@@ -28,7 +26,7 @@ const PokeCard = ({ pokemon }: PokeProps) => {
 
     if (isLoading || !details) return null;
 
-    const { id, name, abilities, types, base_experience, height, weight } = details;
+    const { id, name, types } = details;
     const mainType = types[0]?.type?.name || "normal";
     const { gradient, bgColor } = typeColors[mainType] || {
         gradient: "from-gray-200 to-gray-400 border-gray-400",

@@ -14,6 +14,11 @@ export interface Sprite {
     front_default: string;
 }
 
+export interface BackButtonProps {
+    title: string;
+    link: string;
+}
+
 export interface PaginationProps {
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;

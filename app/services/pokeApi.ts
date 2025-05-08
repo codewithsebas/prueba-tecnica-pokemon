@@ -5,7 +5,7 @@ export const fetchPokemonList = async (limit: number, offset: number): Promise<P
     if (!res.ok) throw new Error("Error fetching Pokémon list");
     const data = await res.json();
 
-    return data.results.map((item: any, index: number) => ({
+    return data.results.map((item: PokemonListItem, index: number) => ({
         id: offset + index + 1,
         name: item.name,
         url: item.url,
