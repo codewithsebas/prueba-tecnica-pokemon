@@ -81,7 +81,6 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
 
         const favoritePoke = JSON.parse(localStorage.getItem('favorites') || '[]');
         setPokeFavorite(favoritePoke);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
@@ -148,10 +147,10 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                                         }}
                                     ></div>
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_API_BASE_GIF_URL}/sprites/xyani/${name}.gif`}
+                                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
                                         alt={name}
-                                        width={10000}
-                                        height={10000}
+                                        width={200}
+                                        height={250}
                                         priority
                                         className="object-contain w-80 sm:h-72 sm:w-full xl:h-72 2xl:h-80 md:border md:border-gray-400 p-2 rounded-sm transition-transform relative z-10"
                                         style={{
