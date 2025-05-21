@@ -7,10 +7,13 @@ import confetti from 'canvas-confetti';
 import { typeColors } from "../svgs/typeColors";
 import { typeBgColors } from "../svgs/typeBgColors";
 import { typeIcons } from "../svgs/typeIcons";
+import { Heart } from "lucide-react";
 
 export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
     const [flipped, setFlipped] = useState(false);
     const { id, name, abilities, types, base_experience, height, weight } = pokemon;
+    const [pokeFavorite, setPokeFavorite] = useState<number[]>([]);
+
 
     const mainType = types[0]?.type?.name;
     const { gradient, bgColor } = typeColors[mainType] || { gradient: "from-gray-200 to-gray-400 border-gray-400", bgColor: "bg-gray-400" };
@@ -52,6 +55,22 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
         }, 300)
     };
 
+    function toggleFavorite(id: number) {
+        const currentFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+        let updatedFavorites;
+        if (currentFavorites.includes(id)) {
+            updatedFavorites = currentFavorites.filter((favId: number) => favId !== id);
+        } else {
+            updatedFavorites = [...currentFavorites, id];
+            shoot();
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        setPokeFavorite(updatedFavorites);
+    }
+
+
     useEffect(() => {
         setTimeout(() => {
             setFlipped(true)
@@ -59,7 +78,12 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                 shoot()
             }, 300)
         }, 200)
-    }, [])
+
+        const favoritePoke = JSON.parse(localStorage.getItem('favorites') || '[]');
+        setPokeFavorite(favoritePoke);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
 
     return (
         <div className="w-full h-fit sm:w-[390px] sm:h-[620px] xl:w-[390px] xl:h-[620px] 2xl:w-[480px] 2xl:h-[720px] [perspective:1000px]">
@@ -124,10 +148,10 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
                                         }}
                                     ></div>
                                     <Image
-                                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+                                        src={`${process.env.NEXT_PUBLIC_API_BASE_GIF_URL}/sprites/xyani/${name}.gif`}
                                         alt={name}
-                                        width={200}
-                                        height={250}
+                                        width={10000}
+                                        height={10000}
                                         priority
                                         className="object-contain w-80 sm:h-72 sm:w-full xl:h-72 2xl:h-80 md:border md:border-gray-400 p-2 rounded-sm transition-transform relative z-10"
                                         style={{
@@ -182,16 +206,27 @@ export default function FlipCard({ pokemon }: { pokemon: PokemonDetails }) {
 
                             </div>
 
-                            <p className="font-semibold mt-2 text-md xl:text-md 2xl:text-xl">Tipos:</p>
-                            <div className="flex gap-1 flex-wrap mt-2">
-                                {types.map((t) => (
-                                    <span
-                                        key={t.type.name}
-                                        className="px-3 py-0.5 pb-1 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-400  rounded-full capitalize text-md xl:text-md font-medium"
-                                    >
-                                        {t.type.name}
-                                    </span>
-                                ))}
+                            <div className="flex justify-between gap-2 items-end">
+                                <div>
+                                    <p className="font-semibold mt-2 text-md xl:text-md 2xl:text-xl">Tipos:</p>
+                                    <div className="flex gap-1 flex-wrap mt-2">
+                                        {types.map((t) => (
+                                            <span
+                                                key={t.type.name}
+                                                className="px-3 py-0.5 pb-1 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-400  rounded-full capitalize text-md xl:text-md font-medium"
+                                            >
+                                                {t.type.name}
+                                            </span>
+                                        ))}
+
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => toggleFavorite(id)}
+                                    className={`${pokeFavorite.includes(id) ? 'bg-red-400 text-white' : 'bg-white'} rounded-lg p-2`}
+                                >
+                                    <Heart />
+                                </button>
 
                             </div>
                         </div>

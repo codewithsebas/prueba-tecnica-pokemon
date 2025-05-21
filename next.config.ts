@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: 'raw.githubusercontent.com',
         pathname: '/PokeAPI/sprites/master/sprites/pokemon/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'play.pokemonshowdown.com',
+      }
     ],
   },
 };

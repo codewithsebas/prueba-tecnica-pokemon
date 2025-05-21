@@ -41,12 +41,14 @@ const PokeCard = ({ pokemon }: PokeProps) => {
                     <Image src="/pokemon.png" alt="Logo Pokémon" className="ps-2 pt-2" width={200} height={200} />
                     <div className="relative w-full h-60 flex flex-col items-center justify-center py-2 rounded-lg gap-2">
                         <Image
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+                            src={`${process.env.NEXT_PUBLIC_API_BASE_GIF_URL}/sprites/xyani/${name}.gif`}
                             alt={name}
                             width={500}
                             height={500}
                             priority
                             className="object-contain w-full h-64 transition-transform relative z-10"
+                            style={{ imageRendering: 'pixelated' }}
+
                         />
                     </div>
 
